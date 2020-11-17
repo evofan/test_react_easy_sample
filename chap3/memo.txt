@@ -1,0 +1,94 @@
+□□3-1 Node.js
+
+開発ツールの中心にwebpack（ビルドツール）がある
+
+・webpack ... JSファイルやCSSファイルを束ねて（バンドルする）アプリケーションを作成するツール
+
+・Node.js ... ブラウザ以外のサーバーやデスクトップでもJavaScriptを使えるようにしたもの、非同期I/O（ノンブロッキングI/O）で通信やファイル処理を行う
+
+
+□□3-2 npm
+
+・npm ... JavaScriptのパッケージ管理ツール（PerlのCPAN等と同じ）
+
+・npmのコマンド
+npm install パッケージ名 ... パッケージのインストール
+npm uninstall パッケージ名 ... パッケージのアンインストール
+npm list ... インストールされているパッケージの一覧表示
+npm search キーワード ... パッケージの検索
+npm init ... package.jsonファイルの作成
+npm run スクリプト名 ... package.jsonに定義されたスクリプトの実行
+npm start ... package.jsonに定義されたstartスクリプトの実行
+npm help ... 短いヘルプ（usage）
+npm help -l ... 詳しいヘルプ（usage）
+npm help コマンド名 ... コマンドの詳細ドキュメント（man）
+
+■npm installコマンド
+npmパッケージと依存するパッケージをインストールし、package.jsonにインストールしたパッケージ情報を追加する
+package-lock.jsonには実際に読み込まれたパッケージの情報が書かれており、環境の再構築の際に再現される
+
+・オプション
+--save-dev ... このプロジェクトのパッケージ管理ファイルにインストールしたパッケージ情報を追加する、devdependiceisの方に？
+このパッケージは開発ツールなので、完成したアプリケーションには含まれない
+
+・バージョン指定
+npm install react@0.14.9のようにバージョン指定が出来る
+
+・node_modulesのディレクトリ
+インストールしたパッケージはここに入る
+
+■npm listコマンド
+プロジェクトに登録されているnpmパッケージの一覧が見れる。パッケージが依存しているパッケージも表示される
+
+依存パッケージを表示したくない場合は、npm list --depth=0で可能
+
+グローバルにインストールしたものは、--globalオプションで表示可能
+
+■npm run, npm startコマンド
+一部のnpmパッケージ（webpack等）は、実行可能なコマンドもインストールされる
+そのコマンドはnode_modules/.binディレクトリに入っている
+
+コマンドを実行するには、コマンド検索PATH（環境変数？）に追加する方法もあるが、
+package.jsonファイルのscriptsに加える方法をお勧めする。
+例：
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack serve",
+    "webpack": "webpack"
+  },
+  "keywords": [],
+
+このように記述すると、npm run webpackでwebpack -d（本のver.では-dがあった、今は無い）が実行される
+
+又、startに登録したコマンドは、npm startで実行出来る
+
+npm5.2.0以降をインストールすると、npxコマンドがインストールされる
+npxコマンドを使うと、npx webpack -d（本のver.では-dがあった）のようにして、プロジェクト内のwebpackを実行出来る
+但し、package.jsonのscriptsによく使うコマンドを定義する事は、慣習的に良い事なので、本書ではnpm runを使用する
+
+
+□□3-3 Babel
+ES6のを現状（2017年）のJavaScriptに変換して現在のブラウザで実行するツール
+
+Reactで使われているJSX記法の変換もBabelで行う
+
+Babelには多数のプラグインがあるが、Presetsというプラグインのプリセットで目的別に簡単に使える
+
+この情報が、.babelrcファイル内に書かれている
+.babelrc
+{
+  "presets": ["@babel/preset-env", "@babel/preset-react"]
+}
+
+↑ES6とJSXを含むReact対応のPresetsを使っている
+
+・コマンドライン
+本書ではBabelはwebpack経由で使っているが、コマンドラインから直接使う事も出来る
+
+
+□□3-4 ESLINT
+
+
+
+
+
