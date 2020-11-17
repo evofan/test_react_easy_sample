@@ -87,8 +87,118 @@ Babelには多数のプラグインがあるが、Presetsというプラグインのプリセットで目的別に
 
 
 □□3-4 ESLINT
+JavaScriptの文法チェック等を行うツール
+
+1.閉じカッコのミス等のつまらない間違いを事前に検出出来る
+2.if文の条件式内に代入文が有る等の望ましくないコードの検出
+3.インデントや空白数等のコーディングスタイルの統一※チーム開発向け
+
+エラーは行数が出るのでそこをチェックする
+
+・設定ファイル
+.eslintrc.json
+{
+    "parser": "babel-eslint",
+    "env": { ■環境設定
+      "browser": true, ■ブラウザで動かす
+      "es6": true ■ES6を使う
+    },
+    "parserOptions": { ■パーサーの設定
+      "sourceType": "module",
+      "ecmaFeatures": { ■追加機能の指定
+        "experimentalObjectRestSpread": true, ■分割代入を有効
+        "jsx": true ■JSXを有効
+      }
+    },
+    "extends": ["eslint:recommended", "plugin:react/recommended"], ■ESLINTのお勧め設定、Reactプラグインのお勧め設定を指定
+    "plugins": ["react"], ■React用プライグインを指定
+    "rules": {■独自ルールを追加
+      "no-console": "off" ■console.log()を有効に
+    },
+    "settings": {
+      "react": {
+        "version": "detect"
+      }
+    }
+  }
+
+ESLintはコマンドラインからも使用出来る、又エディターに組み込みも出来る※例：Visual Studio Code
 
 
+□□3-5 css-loader, style-loader
+CSSをwebpackが作成するoutputフォルダに組み込むローダー
+
+css-loader ... CSSファイルを読み込むローダー
+style-loader ... CSSファイルを<style>タグでくくってoutputファイルに挿入するローダー
+
+通常は2つを組み合わせて使う、オプション指定でミニファイ（圧縮）やCSS Module（Reactのコンポーネント単位でCSSを有効にして名前の衝突を防ぐ）が使える
 
 
+□□3-6 webpack
 
+■設定ファイル
+webpackが各種ローダーを読み込んだり、loader経由でツールを動作させてoutputファイルを作成する
+webpack.config.js
+
+module.exports = {
+  entry: { ■アプリ起動時に動作すべきJSファイルを指定する（複数エントリーの指定も可＝複数出力される）
+    app: "./src/index.js"
+  },
+  output: { ■出力されるファイルのファイル名、パスを指定
+    path: __dirname + '/public/js', ■パスは絶対パスで指定する必要があるので、カレントディレクトリを示す「__dirname」と連結している
+    filename: "[name].js" ■ファイル名に[name]と書くと、entryで指定したキー（この場合app）が使われる
+  },
+    devServer: { ■開発用サーバーwebpack-dev-serverの設定
+    contentBase: __dirname + '/public', ■webで公開するディレクトリ、index.htmlがある場所を指定
+    port: 8080, ■開発サーバーが使うポート番号、他と重なってないか注意
+    publicPath: '/js/' ■webpackが出力するJSのディレクトリがcontentBaseと異なる場合に指定する
+  },
+  devtool: "eval-source-map", ■出力ファイルのJSはBabel等で変換され1つに結合されたものなので、それと別にブラウザーのデバッガでデバッグ出来るようにmapファイルを作成する指示（mapファイルの作成法は幾つかあるので別途調査）
+  mode: 'development',
+  module: { ■ファイルの種類ごとにローダーを指定、正規表現でマッチしたローダーを使用する
+    rules: [{
+      test: /\.js$/, ■ESLINTのローダーを実行する
+      enforce: "pre", ■pre指定があるので、test:loaderより先に実行される
+      exclude: /node_modules/, ■/node_modules/はnpmでインストールされたJSは対象外に指定
+      loader: "eslint-loader"
+    }, {
+      test: /\.css$/, ■css-loaderとstyle-loaderを実行する
+      use: ["style-loader","css-loader"]
+    }, {
+      test: /\.js$/, ■Babelのローダーを実行する
+      exclude: /node_modules/, ■/node_modules/はnpmでインストールされたJSは対象外に指定
+      loader: 'babel-loader'
+     }]
+  }
+};
+
+■webpack-dev-server
+webpack-dev-serverは、webpackの設定ファイルを読み込み、JSやCSSのソースファイルに変更があるとビルドを行い、結果をブラウザにリアルタイムに反映してくれるツール
+注意点：
+・webpackの設定に書かれてないファイルは作成・更新しない
+・アプリが完成し、サーバーでデプロイするには、npm run webpackを使いoutputファイルを作成する必要がある
+・ソースファイルが更新されると、JSは全体がリロードされる
+（変更されたファイルのみ更新したい場合はwebpackのプラグインを使う必要がある）
+
+
+□□3-7 gitでのプロジェクト管理
+npmプロジェクトをgitで管理する場合、不要なディレクトリを.gitignoreに登録する＝アップされない
+.gitignore
+node_modules
+public/**
+!public/index.html
+
+.DS_STORE
+*~
+*.pyc
+static
+.grunt
+........等
+
+node_modulesは、npm installで再構築出来るので不要
+
+publicは、webpackを再実行すれば生成されるので不要
+
+
+□□3-8 IDE
+この本ではWebStormを推奨
