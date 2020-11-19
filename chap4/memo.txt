@@ -1,10 +1,102 @@
 □□4-1 ES6
+ECMAScript2015=ES6
+（広義にはECMAScript2016も含む）
 
+■Babel
+ES6のコードを、対応していない古いブラウザ－用にES5に変換するツール
+変換されたJSのデバッグにはソースマップという機能を使う
 
 
 
 □□4-2 
+■クラス定義　
+プロトタイプ拡張を使わずとも、classでクラス定義出来る
+（但し内部的にはプロトタイプベースのまま）
+
+■アロー関数
+let aFunc = (x) => x * 2;
+
+■デフォルト引数
+function Hello(obje = "World") {
+	console.log("Hello" + obj);
+}
+
+■レストパラメーター
+従来のJavaScriptでは、可変長引数の関数を作る場合はargumnetsを使う必要があった
+又、2つ引数の固定で、3つめ以降が可変の関数は作るのが難しかった
+
+ES6ではスプレッド演算子を使い、自然な形で可変長引数を扱う事が出来る
+function f(first, second, ...rest) {
+	console.log(first);
+	console.log(second);
+	console.log(rest[0]); // third
+}
+
+■変数定義
+varから変更
+const ... 後から変更出来ない値に使用
+let ... 同じ変数を定義出来ない、スコープがvarより狭い
+
+■式、変数
+・分割代入
+配列やオブジェクトの要素の値を変数に代入出来る、後者はReactのコードでよく使われる
+let [a, b] = [1, 2];
+console.log(a); // 1が表示される
+console.log(b); // 2が表示される
+
+let o1 = { x:1.1, y:2.2, z:3.3 };
+let { x, y } = o1;
+console.log(x); // 1.1
+console.log(y); // 2.2
+
+・スプレッド演算子
+配列の場合、スプレッド演算子により残りの全て代入する事が出来る
+let [f, ...r] = [1, 2, 3];
+console.log(f); // 1
+console.log(r); // [2, 3]
+
+スプレッド演算子は配列の連結にも使える
+const a1 = [1, 2, 3];
+const a2 = [...a1, 4, 5, 6];
+console.log(a2); // [1, 2, 3, 4, 5, 6];
+
+■テンプレート文字列
+var a = 10;
+console.log(a + "個");
+↓
+let a = 10;
+console.log(`${a}個`);
+
+■モジュール
+ES6では、モジュールはJavaScriptの書かれているファイル単位になり、ファイル名がモジュール名になる
+
+モジュール内で公開してよいクラスや関数にはexport属性を付けて外部から利用出来るようにする
+
+// Shopモジュール
+export class a {}
+class b {}
+export class c {}
+class d
+↑でaとcは公開されている
+
+モジュールを利用するにはimport文を使う
+例：
+import {a, b} from 'Shop';
+
+又、モジュールが公開するクラス/関数が1つ or 主に使われるクラス/関数が1つの場合は、export defaultを指定して簡単に書ける
+// Shop2モジュール
+export default class e {}
+↓
+import eee from 'Shop2';
+
+■CommonJSとES6の関係
+以前は複数のJSファイルを読み込んでいたが、関数名やクラス名を重複しないように書く必要があった
+
+この問題を解決する為に、モジュール機構を構築するCommonJSが開発され、npmパッケージで使われてきた
+
+ES6ではモジュール機構が追加されたが、CommonJSとは異なるので、BabelではES5に変換する際にES6のimport/exportをCommonJSに変換している
 
 
 
-□□4-3 
+□□4-3 いろいろな補足
+■JSのオブジェクト指向
