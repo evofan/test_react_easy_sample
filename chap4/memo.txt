@@ -100,3 +100,49 @@ ES6‚Å‚Íƒ‚ƒWƒ…[ƒ‹‹@\‚ª’Ç‰Á‚³‚ê‚½‚ªACommonJS‚Æ‚ÍˆÙ‚È‚é‚Ì‚ÅABabel‚Å‚ÍES5‚É•ÏŠ·‚
 
   4-3 ‚¢‚ë‚¢‚ë‚È•â‘«
 ¡JS‚ÌƒIƒuƒWƒFƒNƒgwŒü
+OOP‚Ì‰ğà‚ÌŠT—v
+—áF
+// ƒTƒCƒRƒƒNƒ‰ƒX
+class Saikoro {
+	constructor(){ // ¡ƒNƒ‰ƒX‚©‚çƒCƒ“ƒXƒ^ƒ“ƒXì¬‚É©“®“I‚ÉÀs‚³‚ê‚éƒƒ\ƒbƒh
+		this.no = 1; // ¡ƒRƒ“ƒXƒgƒ‰ƒNƒ^‚Å‚Í’ÊíAƒCƒ“ƒXƒ^ƒ“ƒX•Ï”‚É‰Šú’l‚ğ—^‚¦‚éA–”ƒCƒ“ƒXƒ^ƒ“ƒX•Ï”‚Íthis‚ğ•t‚¯‚Äƒ[ƒJƒ‹•Ï”‚Æ‹æ•Ê‚·‚é
+	}
+	furu() {
+		this.no = MAth.floor(Math.random()*6)+1;
+	}
+	me(){
+		return this.no;
+	}
+	me_kanji(){
+		return "ˆê“ñOlŒÜ˜Z".substr(this.no - 1, 1);
+	}
+}
+
+// ƒTƒCƒRƒƒNƒ‰ƒX‚ğ—˜—p
+const sai = new Saikoro(); // ¡ƒNƒ‰ƒX‚ğ—˜—p‚·‚é‚É‚ÍAnew‰‰Zq‚ÌŒã‚ÉƒNƒ‰ƒX–¼‚ğ‘‚¢‚Ä¶¬i’Êí‚±‚ê‚©‚ç—˜—p‚·‚é‚Ì‚Å•Ï”‚É“ü‚ê‚éj
+sai.furu(); // ¡ƒCƒ“ƒXƒ^ƒ“ƒX.ƒƒ\ƒbƒh‚ÅŒÄ‚Ño‚·
+console.log(sai.me()); // ¡1-6‚ğ•\¦
+console.log(sai.me_kanji()); // ¡ˆê-˜Z‚ğ•\¦
+
+// 2‚Â‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‚ğì‚Á‚½ê‡A‚»‚ê‚¼‚ê•Ê‚Ì‚à‚Ì‚Æ‚µ‚Äˆµ‚í‚ê‚é
+const s1 = new Saikoro();
+const s2 = new Saikoro();
+s1.furu();
+s2.furu();
+console.log(s1.me()); // ¡1-6‚ğ•\¦
+console.log(s2.me()); // ¡ª‚Æ‚Í•Ê‚É1-6‚ğ•\¦
+
+// Œp³‚Ì—á
+class IkasamaSai extends Sikoro(){
+	// override
+	furu() {
+		if(Math.random()<0.5){ // ¡–ñ”¼•ª‚ÌŠm—¦‚Å5‚ªo‚é
+			this.no = 5;	
+		} else {
+			super.furu(); // ¡‚»‚êˆÈŠO‚Ìê‡‚ÍeƒNƒ‰ƒX‚Ì“¯–¼ƒƒ\ƒbƒh‚ğŒÄ‚Ño‚µ‚Äg—p
+		}
+	}
+}
+const s3 = new Saikoro();
+s3.furu();
+console.log(s3.me()); // ¡1-6‚ğ•\¦A5‚ªoˆÕ‚¢
