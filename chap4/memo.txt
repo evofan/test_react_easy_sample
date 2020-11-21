@@ -146,3 +146,14 @@ class IkasamaSai extends Sikoro(){
 const s3 = new Saikoro();
 s3.furu();
 console.log(s3.me()); // ■1-6を表示、5が出易い
+
+■無名関数
+// 関数に名前を付けてないで使用出来る＝抽象化にも繋がる
+※サンプルは何故かjQuery使ってるので省略
+
+■条件演算子（三項演算子）
+x >=1 ? a="plus" : a="minus";
+
+■イテレーター
+// 配列に対して無名関数を繰り返して適用する処理、forEach()やmap()
+
