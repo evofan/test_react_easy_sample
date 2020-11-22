@@ -156,4 +156,27 @@ x >=1 ? a="plus" : a="minus";
 
 ■イテレーター
 // 配列に対して無名関数を繰り返して適用する処理、forEach()やmap()
+const rgb= ["赤","青","緑"];
+let tds = '';
+for(let i=0; i< rgb.length; i++){
+	tds = tds + "<fd>" + rgb[i] + "</td>";
+}
+console.log("<table><tr>" + tds + "</tr></table>");
+
+↓
+
+rgb.forEach((v) => { tds = tds + `<td>${v}</td>`});
+console.log("<table><tr>" + tds + "</tr></table>");
+
+↓
+
+rgb.map((v) => { tds = tds + `<td>${v}</td>`});
+console.log(`<table><tr>${tds.jpin("")}</tr></table>`);
+
+■文末のセミコロン
+省略する事が出来る
+・RubyやSwiftで無い方が慣れている
+・コードがきれいに見える
+・ES6にふさわしい
+※本の筆者は↑理由で省略推奨
 
