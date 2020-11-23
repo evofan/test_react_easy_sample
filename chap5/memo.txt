@@ -1,0 +1,39 @@
+JSX
+
+□□5-1 JSXとは
+JSを使ってWebアプリケーションを作る場合、Handler.jsやmusracheのようなテンプレートを使って画面を作成する必要がある
+
+しかしReactでは、テンプレートではなく、JSX（XML-like syntax extension to ECMAScript）と呼ばれる
+Facebookの考えたJavaScriptの拡張機能を使い、HTMLタグをJavaScrptの中に書けるようになっている
+
+実際にはBbaelを使い、HTML部分をJSのプログラムに置き換えている
+
+■簡単なJSXの例
+import React from 'react'; // ■Reactモジュールをインポート
+import ReactDOM from 'react-dom'; // ■Reactモジュールをインポート
+
+ReactDOM.render( // 第一引数の値を第二引数の場所に表示するReactDOM.render関数を呼び出す
+  <h1>Hello, world!!</h1>,
+  document.getElementById('root') // このdiv内に表示される
+);
+
+※JSXは完全にHTMLと同じではないので注意、また式なのでテンプレートエンジンと違う記載になる事もある
+
+
+□□5-2 JSXの基本
+
+■新しいプロジェクトの作成
+
+C:\Users\USER>cd C:\Users\USER\Documents\test_react_easy_sample\chap5
+C:\Users\USER\Documents\test_react_easy_sample\chap5>mkdir money_book
+C:\Users\USER\Documents\test_react_easy_sample\chap5>cd money_book
+C:\Users\USER\Documents\test_react_easy_sample\chap5\money_book>mkdir src public
+C:\Users\USER\Documents\test_react_easy_sample\chap5\money_book>xcopy ..\..\chap2 . /c /h
+
+■JSXを書いてみる
+　 23
+
+
+
+
+

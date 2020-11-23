@@ -1,0 +1,19 @@
+2-1
+
+ターミナル又はコマンドプロンプトを使用
+
+テキストエディタはAtom or VSC or sublime Text
+React用のプラグインも入れるとよい
+
+ブラウザはChrme使用
+
+Node.jsをインストールする
+C:\Users\USER>node -v
+v12.14.1
+
+npmをインストールする
+C:\Users\USER>npm -v
+6.13.4
+
+プロジェクトはフォルダで管理
+
