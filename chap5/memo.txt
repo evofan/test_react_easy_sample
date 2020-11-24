@@ -31,9 +31,23 @@ C:\Users\USER\Documents\test_react_easy_sample\chap5\money_book>mkdir src public
 C:\Users\USER\Documents\test_react_easy_sample\chap5\money_book>xcopy ..\..\chap2 . /c /h
 
 ■JSXを書いてみる
-　 23
+/money_bookフォルダにコード書いて
+>npm install
+>npm start
 
+ERROR in ./src/index.js
+Module Error (from ./node_modules/eslint-loader/dist/cjs.js):
 
+C:\Users\USER\Documents\test_react_easy_sample\chap5\money_book\src\index.js
+  6:3  error  'retrun' is not defined  no-undef
 
+error出たら修正、okならhttp://localhost:8080/で確認
 
+※publicフォルダにchap2のindex.htmlを入れておく
 
+・コンポーネント（タグ）名は大文字から始める必要がある→MoneyBook
+・class属性は、classNameと書く必要がある
+・returnで戻せるHTMLタグは1つなので複数のHTMLタグがある場合はdivで囲む
+・閉じタグが無い属性や、属性の値を""で括ってない場合はReactではエラーになるので注意する
+
+■JSXに値を埋め込む
