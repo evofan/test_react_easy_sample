@@ -13,7 +13,7 @@ const MoneyBook = () => {
   ]
   return (
     <div>
-      <Title>小遣い帳</Title>
+      <h1>小遣い帳</h1>
       <table className="book">
         <thead>
           <tr><th>日付</th><th>項目</th><th>入金</th><th>出金</th></tr>
@@ -58,15 +58,6 @@ const MoneyBookItem = (props) => { // ■MoneyBookItemコンポーネントの�
 MoneyBookItem.propTypes = { // ■MoneyBookItemコンポーネントに渡すパラメーターの型チェック、コンパイル時のエラー検出の為入れる事を推奨
   book: PropTypes.object.isRequired // ■object型のbookが渡ってくると定義、isRequiredが付いてるのでbookパラメーターが渡って来ない場合はconsole上にエラー表示
 };
-
-// 子要素のコンポーネント
-const Title = (props) => {
-  return (<h1>{props.children}</h1>)
-}
-
-Title.propTypes = {
-  children: PropTypes.object.string // ■文字列かどうかの確認
-}
 
 ReactDOM.render(
   <MoneyBook />,

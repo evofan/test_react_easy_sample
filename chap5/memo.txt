@@ -50,4 +50,67 @@ error出たら修正、okならhttp://localhost:8080/で確認
 ・returnで戻せるHTMLタグは1つなので複数のHTMLタグがある場合はdivで囲む
 ・閉じタグが無い属性や、属性の値を""で括ってない場合はReactではエラーになるので注意する
 
-■JSXに値を埋め込む
+■JSXに式（値）を埋め込む
+・books変数に小遣い情報を表すオブジェクトの配列を代入
+・JSXにJSの変数を埋め込む場合には{}を使う、{}の中にはJSの式が書ける
+
+■コンポーネントの分割
+テーブルの行の<tr></tr>を何回も書くのは手間なので、コンポーネント化する（MoneyBookItemを作る）
+
+<MoneyBookItem book={books[0]} /><!-- ■MoneyBookItemの呼び出し、属性でパラメーターを渡せる -->
+
+■条件演算子を使い、JSXをコンパクトにする
+三項演算子を追加
+
+■繰り返し
+map()を追加
+
+■子要素を扱うコンポーネント
+タイトル表示する子コンポーネントを追加
+
+
+□□5-3 補足
+
+■属性と値
+HTMLの属性でテンプレート文字列を使う時は、{}を使う
+<img src="{`logo.png`}" />
+
+式を使う場合
+<img src="logo.png" width={100} /> ... 数値を指定
+<img src="logo.png" hidden={true} /> ... ブール値を指定
+<img src="logo.png" style={ {width:100} } /> ... オブジェクトを指定
+
+画像ファイルにlargeという文言があればwidth=400、無ければwidth=100指定
+const Logo = (file_name) => (<img src={file_name} width={file_name.match(/large/i)} ? 400 : 100} />)
+
+■HTMLと属性の表記が異なるもの
+・classはclassNameと書く
+・forはhtmlForと書く
+・属性名が2つの単語から出来ている場合、キャメルケースで書く
+例：readOnly, cellSpacing
+（但し、data-やarea-始まる場合はそのままでok）
+・style属性は文字列でなく、オブジェクトで指定する
+<p style="font-size: 60%" />でなく、<p style={ {fontSize: "60%"} } />
+・textareaタグにも、inputタグと同様にvalue属性が使える
+・動的にHTMLを生成する場合（innerHTML使う場合）、dangerouslySetInnerHTMLを使う
+（XSS（Cross-Site Scripting）等のセキュリティ性の脆弱を作り易いので）
+例：<div dangerouslySetInnerHTML={ {__html: "top<br />bottom"} }></div>
+
+■プロトタイプ
+Reactではコンポーネントが受け取るパラメーターの型を宣言するProtoTypeを書く事が推奨されている
+・実行時にエラー表示がコンソールに出るのでデバッグし易い
+・ProtoTypeを見ればコンポーネントの仕様が理解し易い
+
+よく使うProtoType
+配列　：ProtoTypes:array
+ブール：ProtoTypes:bool
+関数　：ProtoTypes:func
+数値　：ProtoTypes:number
+文次列：ProtoTypes:string
+オブジェクト：ProtoTypes:oject
+
+さらにそのパラメーターが必須の場合は、ProtoTypes:oject.isRequiredのように付ける
+
+■ESLINT
+plugin:react/recommended
+ではProtoTypeを書かないとエラーになる
