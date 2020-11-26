@@ -4,6 +4,7 @@
 
 <img src="https://evofan.github.io/test_react_easy_sample/chap5/pic_screenshot_5-2-2.jpg" width="25%">  
 
+<img src="https://evofan.github.io/test_react_easy_sample/chap6/pic_error2.jpg" width="50%">  
 
 reference
 
