@@ -44,6 +44,12 @@ JyankenPageクラスの説明
 □□6-5 ライフサイクル・メソッド
 JyankenPageクラスのrender()はどこからも呼ばれていないが、いつ使われているのか？
 
+Reactライブラリが自動で呼び出している
+・JSアプリがブラウザにロードされた直後、例：componentDidMount()
+・コンポーネントのProps（パラメーター）が変更された時、例：componentWillRecieveProps()
+・コンポーネント内でsetState()が実行され、Stateが変更された時
+
+これらのメソッドはサーバーとのデータ通信等に使われる
 
 □□6-6 イベントの扱い
 

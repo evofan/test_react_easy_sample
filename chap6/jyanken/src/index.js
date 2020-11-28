@@ -30,6 +30,13 @@ class JyankenGamePage extends Component {
     }
   }
 
+  // ライフサイクルメソッドのテスト
+  /*
+  componentDidMount() {
+    setTimeout(() => { this.pon(1) }, 1000);
+  }
+  */
+
   render() {
     return (
       <div>
