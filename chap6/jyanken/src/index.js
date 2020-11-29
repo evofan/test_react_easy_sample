@@ -37,6 +37,20 @@ class JyankenGamePage extends Component {
   }
   */
 
+  /**
+   * 自分の手とCPUの手が前回と同じだった場合、render()を実行しない＝表示の高速化になる
+   * @param {object} nextProps ... setState()に渡されたものと同一の引数
+   * @param {object} nextState ... setState()に渡されたものと同一の引数
+   */
+  shouldComponentUpdate(nextProps, nextState) {
+    // アイデンティカル＝同一の
+    const identical = nextState.human === this.state.human && nextState.computer === this.state.computer;
+    if (identical) {
+      console.log("*** identical !");
+    }
+    return !identical; // shouldComponentUpdate()の戻り値がfalseの場合はrender()を実行しないようになっている
+  }
+
   render() {
     return (
       <div>
