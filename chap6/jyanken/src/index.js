@@ -51,7 +51,7 @@ class JyankenGamePage extends Component {
     return !identical; // shouldComponentUpdate()の戻り値がfalseの場合はrender()を実行しないようになっている
   }
 
-  render() {
+  render() { // ■じゃんけんのボタンを並べたJyankenBoxには、this.Pon()メソッドを無名関数にしてProsで渡している
     return (
       <div>
         <h1>ジャンケンぽん</h1>
@@ -62,7 +62,9 @@ class JyankenGamePage extends Component {
   }
 }
 
-const JyankenBox = (props) => {
+const JyankenBox = (props) => { // ■JyankenBoxコンポーネントは、単にグー・チョキ・パーのボタンを並べたもの
+  // ■各ボタンのonClickに、propsで渡されたactionPon()を呼び出す無名関数を定義している、引数にはグー・チョキ・パーのどれかを渡す
+  // ■onClick={props.actionPon(0)}と書くと、props.actionPon(0)が実行された値がonClick属性の値になってしまうので注意
   return (
     <div>
       <button onClick={() => props.actionPon(0)}>グー</button>
