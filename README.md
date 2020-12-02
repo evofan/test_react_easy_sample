@@ -8,6 +8,8 @@
 
 <img src="https://evofan.github.io/test_react_easy_sample/chap6/pic_jyanken.jpg" width="25%">  
 
+<img src="https://evofan.github.io/test_react_easy_sample/chap6/pic_controlled.jpg" width="25%">  
+
 reference
 
 **作りながら学ぶ React入門**  
