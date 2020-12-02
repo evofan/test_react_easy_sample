@@ -61,13 +61,37 @@ JSのonClickやonChangeをそのまま使う
 □□6-7 フォーム
 Reactには、フォーム要素の扱い方には2つの方法がある
 
-■Controlled Component ... Reactのイベント種類を使い、プログラムで入力を管理する
+■Controlled Components ... Reactのイベント種類を使い、プログラムで入力を管理する
 ・INPUTタグのonChange属性を使い、入力されたデータを取得する
 ・入力された値は基本的にStateに保存する
 ・INPUTタグのvalue属性はStateの値を設定する
 例：※小遣い帳のコード内に記述
+メリット：
+・ツイッターのような文字数制限のある入力で、タイプ時に文字数がチェック出来る
+・英数字のみ入力可能なフィールドで、それ以外の入力時に警告を出せる
+・ラジオボタンやチェックボックスで、チェックした瞬間に表示を切り替えられる
 
+■Uncontrolled Components ... 入力の処理はブラウザに任せ、値は必要になった時点で取得
+・値を取得する必要のあるタグにref属性を設定し、タグをアクセスするためのインスタンス変数に設定する
+・値を取得するには↑で設定したインスタンス変数にアクセスして取得する
+例：※小遣い帳のコード内に記述
+メリット：
+・コードがシンプルになる（但しリアルタイム処理は出来ない）
+
+■その他のフォーム要素
+・テキストエリア ... Reactではテキストフィールドとほぼ同じように使える
+<div>項目：<textarea value={this.state.item} name={item} onChange={(e) => this.onChangeValue(e) } placeholder="おこづかい" /></div>
+
+・セレクトボックス
+<select value={this.state.payingIn ? "on" : "off"} onChange={(e) => this.onChangePayingIn(e) } />
+<option value="on">入金</option>
+<option value="off">出金</option>
+</select>
+
+・複数選択出来るセレクトボックス
+
+
+<option value="on">入金</option>
 
 
 □□6-8 詳細なライフサイクル・メソッド
-
