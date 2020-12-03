@@ -10,6 +10,8 @@
 
 <img src="https://evofan.github.io/test_react_easy_sample/chap6/pic_controlled.jpg" width="25%">  
 
+<img src="https://evofan.github.io/test_react_easy_sample/chap6/pic_fig1.png" width="50%">  
+
 reference
 
 **作りながら学ぶ React入門**  
@@ -18,4 +20,5 @@ reference
 **React Developer Tools - Chrome ウェブストア**  
 [https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi/related](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi/related)  
 
-
+**React lifecycle methods diagram**  
+[https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/](https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/)  
