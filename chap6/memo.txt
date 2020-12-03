@@ -89,9 +89,80 @@ Reactには、フォーム要素の扱い方には2つの方法がある
 </select>
 
 ・複数選択出来るセレクトボックス
+class Fruis extends Components {
+	constructor(props) {
+		super(props)
+		this.state = { basket: [] } // ■選択された複数の配列をbasketに保持
+	}
 
+	onChangeValue(event) {
+		this.setState({ basket: Array.from(event.target.options).filter((e) => e.selected).map((e) => e.value) }) // ■event.target.valueには最後に選択したオプションしか入ってないので、セレクトボックスに対応するevent.target.optionsの状態を調べてStateに反映する
+		// ■event.target.optionsはHTMLOptionsCollection型のデータなので、Array.fromで配列に変換する
+		// ■filter((e) => e.selected)で現在選択しているオプションのみ抽出
+		// ■map((e) => e.value)でオプションの値を抽出
+	}
 
-<option value="on">入金</option>
+	render() {
+		return(
+			<select multiple value={this.state.basket} onChange={(e) => this.onChangeValue(e) } /> // ■multiple属性を指定、valueにはStateにある配列を指定すると、現在選択されているオプションが選択状態になる
+			<option>Orange</option>
+			<option>Apple</option>
+			<option>Grape</option>
+			</select>
+		)
+	}
+}
 
 
 □□6-8 詳細なライフサイクル・メソッド
+
+■初めてコンポーネントが表示される場合
+1.Reactライブラリーがコンポーネント（クラス）のインスタンスを生成する
+　この時点でコンポーネントのコンストラクターが実行される
+2.componentWillMount()があれば、実行される
+3.render()が実行され、表示用のHTMLが生成され、ブラウザに表示される
+4.componentDidMount()があれば、実行される
+　サーバーとの通信を行いたい場合は、ここで行う
+　取得したデータをsetState()でStateに設定出来る
+
+■2回目以降にコンポーネントが表示される場合
+Reactの管理しているメモリー上にコンポーネントのインスタンスがある状態でコンポーネントが表示された時の処理
+1.componentWillRecieveProps(nextProps)があれば、実行される
+・このメソッドは新しいProps（パラメーター）を引数で受け取るようになっていて、
+　現在の状態と比較して、違っていた場合にサーバーとの通信を行う等の処理を組み込む
+・Propsが以前と同じでも、このメソッドは呼び出される
+2.これ以降はStateが更新された場合と同じ
+
+■Stateが更新された場合
+setState()でStateが更新された場合、↑の続きで呼ばれる
+1.shouldComponentUpdate(nextProps, nextState)がコンポーネント内にあれば、実行される
+・このメソッドには新しいProps、新しいState
+・このメソッドがtrueを返した時のみ、画面の変更＝render()が実行される
+　falseを返した時は実行されないので、高速化に繋がる
+・shouldComponentUpdate()がコンポーネント内に無い場合は、いつでもrender()が実行される
+
+2.render()の実行の前に、componentWillUpdate(nextProps, nextState)があれば、実行される
+・render()には純粋にHTML表示用のコードを書き、それ以外の処理をここに書く
+・shouldComponentUpdate()と同じ様に新しいProps、新しいStateが渡されるので、変更に応じた処理が出来る
+・このメソッド内でsetState()を実行してはいけない→無限再帰呼び出しになる
+
+3.このメソッドに続いてrender()が実行されHTMLが描画される
+
+4.その後、componentDidUpdate(nextProps, nextState)があれば実行される
+・新しいProps、新しいStateが渡されるので、変更に応じた処理が出来る
+
+■コンポーネントが表示されなくなった場合
+コンポーネント内にcomponentWillUnmount()があれば実行される
+コンポーネントが独自のリソースを使っている場合、ここで手動で解放する
+
+■まとめ
+通常では、サーバーとの通信の為にcomponentDidMount()やcomponentWillRecieveProps(nextProps)が
+使われる位だが、Reactのライフサイクルを理解するためには重要
+
+setState()やrender()が非同期で実行されるので難しいが、このライフサイクルが理解出来れば
+自分で複雑なコンポーネントも作れるようになる
+
+また、以下の場合にもライフサイクル・メソッドが役に立つ
+・shouldComponentUpdate()を実行する事で、不要なrender()メソッド呼び出を抑え高速化出来る
+・Reactのコード内にjQueryを組み込むには、適切なライフサイクル・メソッドに処理を組み込む事で
+　共存可能になる（基本的には非推奨）
