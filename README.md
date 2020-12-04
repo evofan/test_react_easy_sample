@@ -12,6 +12,8 @@
 
 <img src="https://evofan.github.io/test_react_easy_sample/chap6/pic_fig1.png" width="50%">  
 
+<img src="https://evofan.github.io/test_react_easy_sample/chap7/pic_jyanken_material_ui.png" width="25%">  
+
 reference
 
 **作りながら学ぶ React入門**  
@@ -22,3 +24,9 @@ reference
 
 **React lifecycle methods diagram**  
 [https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/](https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/)  
+
+**brillout/awesome-react-components**  
+[https://github.com/brillout/awesome-react-components](https://github.com/brillout/awesome-react-components)  
+
+**Material-UI: A popular React UI framework**  
+[https://material-ui.com/ja/](https://material-ui.com/ja/)  
