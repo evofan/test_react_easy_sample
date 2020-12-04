@@ -1,0 +1,48 @@
+コンポーネントの応用
+
+実際にアプリを作る際に必要な技術、既存のReactコンポーネントの利用、ルーティング、サーバーとの通信、等を学ぶ
+
+□□7-1 既存のReactコンポーネントの利用
+Reactにはネット上に多くのコンポーネントが公開されていて、利用する事が出来る
+https://github.com/brillout/awesome-react-components
+
+■Material-UI
+Googleの提唱するMaterial Designに準拠したコンポーネント
+https://material-ui.com/ja/
+
+例：ボタン
+https://material-ui.com/ja/components/button-group/
+
+※コードはジャンケンにMaterial-UIを適用
+
+1.Material-UIを使うには、MuiThemeProviderというテーマのコンポーネントで括る必要がある
+2.Paperは影を付けて浮かび上がった感じにする
+3.TabsとTabコンポーネントでタブを作成
+・どのタブを選択しているかをStateで管理し、Tabsコンポーネントのvalueで指定する
+・タブがクリックされた場合は、TabsコンポーネントのonChangeに指定されたonChange()が実行され、Stateの値を更新する
+・Tabコンポーネントには、表示する文字をlabel、選択した時の値をvalueで指定
+・Tabコンポーネントの子要素（<Tab></Tab>の間）には、タブに表示するHTMLやコンポーネントを書く
+4.今回独立したcssは使用していない（必要に応じて個別でstyle適用）
+
+テーブル表示のコンポーネントは、HTMLのtableタグと1vs1で対応している
+table→Table
+tbody→TableBody
+tr→TableRow
+th→TableHeaderColumn
+td→TableRowColumn
+
+displayCheckbox={false}、adjustForCheckbox={false}、displaySelectAll={false}等の属性を指定しないと、
+行にチェックボックスが付く仕様になっている
+
+ジャンケンのボタンにはRaisedBUttonコンポーネントを使用
+
+styleの指定で、プロパティのハイフン区切りは、キャメルケースになるので注意
+例：margin-top → marginTop
+
+
+□□7-2 ルーティング
+
+
+□□7-3 サーバーとの通信
+
+
