@@ -19,6 +19,9 @@ reference
 **作りながら学ぶ React入門**  
 [https://www.amazon.co.jp/dp/479805075X/](https://www.amazon.co.jp/dp/479805075X/)  
 
+**yuumi3/react_book**  
+[https://github.com/yuumi3/react_book](https://github.com/yuumi3/react_book)  
+
 **React Developer Tools - Chrome ウェブストア**  
 [https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi/related](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi/related)  
 
