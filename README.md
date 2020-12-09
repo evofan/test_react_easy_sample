@@ -14,6 +14,10 @@
 
 <img src="https://evofan.github.io/test_react_easy_sample/chap7/pic_jyanken_material_ui.png" width="25%">  
 
+<img src="https://evofan.github.io/test_react_easy_sample/chap7/pic_err1.jpg" width="50%">7-2 Jyanken Router sample  
+
+<img src="https://evofan.github.io/test_react_easy_sample/chap7/pic_err2.jpg" width="50%">7-3 Weather API sample  
+
 reference
 
 **作りながら学ぶ React入門**  
