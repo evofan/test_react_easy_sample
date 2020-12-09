@@ -165,10 +165,9 @@ ReactDOM.render(
   document.getElementById('root')
 );
 
-/*　本とGitHubのサンプルが違うので注意、差し替えてもエラーで動かない
-          <Link to="/scores"><FlatButton label="対戦結果" style={activeStyle('scores')} /></Link>
-            <Link to="/status"><FlatButton label="対戦成績" style={activeStyle('status')} /></Link>
-            <Route path="/scores" component={() => <ScoreList scores={this.state.scores} />} />
-            <Route path="/status" component={() => <StatusBox scores={this.state.status} />} />
-            <Route exact path="/" component={() => <Redirect to="/scores" />} />
-*/
+// 本とGitHubのサンプルが違うので注意、差し替えてもエラーで動かない
+// <Link to="/scores"><FlatButton label="対戦結果" style={activeStyle('scores')} /></Link>
+// <Link to="/status"><FlatButton label="対戦成績" style={activeStyle('status')} /></Link>
+// <Route path="/scores" component={() => <ScoreList scores={this.state.scores} />} />
+// <Route path="/status" component={() => <StatusBox scores={this.state.status} />} />
+// <Route exact path="/" component={() => <Redirect to="/scores" />} />
