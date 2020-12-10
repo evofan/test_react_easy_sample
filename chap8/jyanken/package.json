@@ -7,7 +7,7 @@
   "scripts": {
     "start": "webpack serve",
     "webpack": "webpack",
-    "test": "mocha --compilers js:babel-register --timeout:5000"
+    "test": "mocha --require @babel/register --exit --timeout 5000"
   },
   "keywords": [],
   "author": "",

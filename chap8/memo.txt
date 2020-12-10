@@ -49,3 +49,15 @@ Mochaはテストランナーと呼ばれ、テストを実行してくれる仕組みを提供してくれる
 js:babel-register ... ES6でテストコードが書かれているので、Babelを使用するので
 --timeout:5000 ... 5秒で終了（E2Eテストはデフォルトの2秒で終わらない事があるので）
 
+↑バージョンが古い書き方なのでエラーが出るので注意
+ "test": "mocha --require @babel/register --exit --timeout 5000"
+に書き換え
+
+Assert | Node.js v15.4.0 Documentation
+https://nodejs.org/api/assert.html
+deepEqual()や、strictEqual等
+
+また、mochaではdescribe()を使ってit()をネスト出来る
+
+■ジャンケンクラスのテストコード
+
