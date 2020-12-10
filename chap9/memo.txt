@@ -1,0 +1,68 @@
+さらに学ぶなら
+
+Reactに関する興味深い技術
+
+□□9-1 Redux
+Reactは基本的に（MVCのV＝View）のライブラリなので（一部Stateやイベントハンドリングも使えるが）、規模が大きくなると厳しい
+
+そこで、Reactで大規模アプリを作る時には、Reduxが用使われている
+
+Redux
+・Stateやイベントを集中管理
+・Reactのコンポーネントには、Stateやイベント管理のコンポーネントがなくなり、
+　シンプルな関数コンポーネントに出来る
+・イベント→State→ビューの変更を一方向で行う内部構成になる
+・ReactとReduxを接続するconnectorにより、Stateやイベントハンドラーを
+　ReactコンポーネントにPropsで渡す
+・シンプルなフレームワークでサイズが小さい
+・サーバーとの通信機能は含まれていない
+
+
+□□9-2 Flowtype
+Facebookの開発した、JavaScriptで型が使えるようになるライブラリ
+
+// @flow
+const a = (n; number): number => {
+	return n + n;
+}
+
+□□9-3 React Native
+Reactと似た、JavaScriptを使いiOS.Androidのアプリを作るツール
+※WebViewを使ったガワネイティブとは別なので注意！
+
+Facebookのスマホ版や、Airbnb、instagram等もこの技術で作られている
+
+ReactはHTMLタグを組み合わせて画面を作るが、ReactNativeではUIButton等のコンポーネントで画面を作る
+
+Swift(Objectiv-C)やJava(Kotlin)等を学ばなくてもアプリ開発が可能
+
+
+□□9-4 Electron
+デスクトップアプリを作るフレームワーク、元はGitHubがAtomのベースとして作成
+SlackやVisualStudioCodeもElectronで作られている
+
+Node.jsの上にChromeの表示部分を乗せたようなもの
+
+
+□□9-5 Reactの情報源
+■Reactの公式
+https://github.com/facebook/react/
+「Getting Started」本書の軽い復習に
+「Tutorial」本書の軽い復習に
+「Advanced Guides」よりReactを詳しく知るために
+
+■JSer.info
+https://jser.info/
+日本語のJSの情報源に
+
+■Stack Overflow
+https://stackoverflow.com/
+QAサイト、☆の数で回答の有効性が分かる
+
+■GitHub
+https://github.com/
+
+■Qiita
+https://qiita.com/
+日本語のQ&Aサイト
+
