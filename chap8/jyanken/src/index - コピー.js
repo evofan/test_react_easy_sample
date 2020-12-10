@@ -45,7 +45,7 @@ class JyankenGamePage extends Component {
     return (
       <MuiThemeProvider>
         <div style={{ marginLeft: 30 }}>
-          <Header>ジャンケンぽん！</Header>
+          <h1>ジャンケンぽん！</h1>
           <JyankenBox actionPon={(te) => this.pon(te)} />
           <Paper style={{ width: 400 }} zDepth={2}>
             <Tabs value={this.state.tabIndex} onChange={(ix) => this.tabChange(ix)}>
