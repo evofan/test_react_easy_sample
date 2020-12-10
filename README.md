@@ -20,6 +20,10 @@
 
 <img src="https://evofan.github.io/test_react_easy_sample/chap8/pic_assert.jpg" width="50%">8-1 assert test  
 
+<img src="https://evofan.github.io/test_react_easy_sample/chap8/pic_err3.jpg" width="50%">  
+
+<img src="https://evofan.github.io/test_react_easy_sample/chap8/pic_err4.jpg" width="50%">  
+
 reference
 
 **作りながら学ぶ React入門**  
