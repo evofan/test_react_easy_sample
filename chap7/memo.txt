@@ -65,3 +65,5 @@ https://reactrouter.com/
 http://api.openweathermap.org/data/2.5/weather?id=1894616&appid=2732922b860f0ade0599a906b8e9743e&lang=ja&units=metric
 {"coord":{"lon":127.8,"lat":26.34},"weather":[{"id":500,"main":"Rain","description":"小雨","icon":"10n"}],"base":"stations","main":{"temp":20.6,"feels_like":20.54,"temp_min":20,"temp_max":21,"pressure":1016,"humidity":94},"visibility":10000,"wind":{"speed":5.1,"deg":50},"rain":{"1h":0.18},"clouds":{"all":1},"dt":1607508442,"sys":{"type":1,"id":8138,"country":"JP","sunrise":1607465118,"sunset":1607503037},"timezone":32400,"id":1894616,"name":"沖縄市","cod":200}
 
+■Fetch API
+→サンプルがエラーで動かないので省略
