@@ -18,6 +18,8 @@
 
 <img src="https://evofan.github.io/test_react_easy_sample/chap7/pic_err2.jpg" width="50%">7-3 Weather API sample  
 
+<img src="https://evofan.github.io/test_react_easy_sample/chap8/pic_assert.jpg" width="50%">8-1 assert test  
+
 reference
 
 **作りながら学ぶ React入門**  
@@ -40,4 +42,12 @@ reference
 
 **REACT ROUTER**  
 [https://reactrouter.com/](https://reactrouter.com/)  
+
+**DeprecationWarning: "--compilers" will be removed in a future version of Mocha; #42**  
+[https://github.com/power-assert-js/espower-typescript/issues/42](https://github.com/power-assert-js/espower-typescript/issues/42)  
+
+**Assert | Node.js v15.4.0 Documentation**  
+[https://nodejs.org/api/assert.html](https://nodejs.org/api/assert.html)  
+deepEqual()や、strictEqual等
+
 
